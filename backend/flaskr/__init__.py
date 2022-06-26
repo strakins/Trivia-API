@@ -44,7 +44,7 @@ def create_app(test_config=None):
   Create an endpoint to handle GET requests 
   for all available categories.
   '''
-  @app.route('/categories')
+  @app.route('/categories/')
   def get_all_categories():
     # categories_list = Category.query.order_by(Category.id).all()
     categories_list = Category.query.order_by(Category.id).all()
@@ -154,7 +154,7 @@ def create_app(test_config=None):
   only question that include that string within their question. 
   Try using the word "title" to start. 
   '''
-  @app.route('/questions/search', methods=['POST'])
+  @app.route('/search', methods=['POST'])
   def search_questions():
       body = request.get_json()
       search_input = body.get('searchTerm', None)
